@@ -6,5 +6,8 @@ Theme.FM's tutorial to get a good idea on where to start, but I've made a good
 bit of modifications, namely in the database arena. [Check out those tutorials
 here.][1]
 
+I'll be doing a full writeup on how it works in the somewhat near future, so stay
+tuned!
+
 Happy Deploying!
 [1]:http://theme.fm/2011/08/tutorial-deploying-wordpress-with-capistrano-2082/
