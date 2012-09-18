@@ -1,12 +1,12 @@
 #Where we're deploying to on the server
-set :deploy_to, "/var/www/vhosts/site.com/capistrano/" # No trailing slash 
+set :deploy_to, "/var/www/vhosts/site.com/capistrano" #TODO No trailing slash 
 
 #Remote Server credentials
-set :user, "user"
+set :user, "user" #TODO
 
-set :domain, "domain.com"
-set :password, "password"
-set :port, "22"
+set :domain, "domain.com" #TODO
+set :password, "password" #TODO
+set :port, "22" #TODO
 server "#{user}@#{domain}", :app #This line doesn't need to change
 
 # This is useful if apache or something needs to belong to a group. I added
@@ -14,49 +14,49 @@ server "#{user}@#{domain}", :app #This line doesn't need to change
 # a part of the group placln. Don't forget to uncomment out the line near the
 # bottom of the document to turn this on.
 
-set :group. "group" 
+set :group. "group" #TODO
 
 
 # We'll be referencing this when we go to search and replace the database, this
 # is where we'll clone the search and replace script if it doesn't exist
-set :local_path, '~/Sites/localhost' 
+set :local_path, '~/Sites/localhost' #TODO
 
 # Local Database credentials for playground.rb
-set :local_db_database, "database"
-set :local_db_username, "user"
-set :local_db_password, "password"
-set :local_db_host, "localhost"
-set :local_db_charset, "utf8"
-set :local_site_url, "://local_sitename" #this is the url to be searched for later
-set :db_prefix, 'db_prefix_'
+set :local_db_database, "database" #TODO
+set :local_db_username, "user" #TODO
+set :local_db_password, "password" #TODO
+set :local_db_host, "localhost" #TODO
+set :local_db_charset, "utf8" #TODO
+set :local_site_url, "://local_sitename" #this is the url to be searched for later #TODO
+set :db_prefix, 'db_prefix_' #TODO
 
 # Remote Database credentials for playground.rb
-set :remote_db_database, "database"
-set :remote_db_username, "user"
-set :remote_db_password, "password"
-set :remote_db_host, "localhost"
-set :remote_db_charset, "utf8"
-set :remote_site_url, "://domain.com" #this is the url to be replaced with later
+set :remote_db_database, "database" #TODO
+set :remote_db_username, "user" #TODO
+set :remote_db_password, "password" #TODO
+set :remote_db_host, "localhost" #TODO
+set :remote_db_charset, "utf8" #TODO
+set :remote_site_url, "://domain.com" #this is the url to be replaced with later #TODO
 
 set :dbp, "#{remote_db_database}.#{db_prefix}"
 
 
 # This is the path to WordPress's uploads folder on YOUR machine
-set :uploads_path, "/path/to/wp-content/uploads"
+set :uploads_path, "/path/to/wp-content/uploads" #TODO
 
 # This is the path to WordPress's blogs.dir folder on YOUR machine (Used in MultiSite)
-set :blogs_dir_path, "/path/to/wp-content/blogs.dir"
+set :blogs_dir_path, "/path/to/wp-content/blogs.dir" #TODO
 
 
-#Begin the magic
+# Alright, that's it! Stop editing!
+#
+# Now Begin the magic
 
 #Symlink wp-config to the release folder so it doesn't get overwritten
 namespace :my_project do
     task :symlink, :roles => :app do
         run "ln -nfs #{shared_path}/wp-config-staging.php #{release_path}/wp-config-staging.php"
         run "ln -nfs #{shared_path}/.htaccess #{release_path}/.htaccess"
-        run "ln -nfs #{shared_path}/uploads #{release_path}/wp-content/uploads"
-        run "ln -nfs #{shared_path}/blogs.dir #{release_path}/wp-content/blogs.dir"
     end
 end
 
