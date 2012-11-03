@@ -27,7 +27,7 @@ set :local_db_username, "user" #TODO
 set :local_db_password, "password" #TODO
 set :local_db_host, "localhost" #TODO
 set :local_db_charset, "utf8" #TODO
-set :local_site_url, "://local_sitename" #this is the url to be searched for later #TODO
+set :local_site_url, "//local_sitename" #this is the url to be searched for later #TODO
 set :db_prefix, 'db_prefix_' #TODO
 
 # Remote Database credentials for playground.rb
@@ -36,7 +36,7 @@ set :remote_db_username, "user" #TODO
 set :remote_db_password, "password" #TODO
 set :remote_db_host, "localhost" #TODO
 set :remote_db_charset, "utf8" #TODO
-set :remote_site_url, "://domain.com" #this is the url to be replaced with later #TODO
+set :remote_site_url, "//domain.com" #this is the url to be replaced with later #TODO
 
 set :dbp, "#{remote_db_database}.#{db_prefix}"
 
