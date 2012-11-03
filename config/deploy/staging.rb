@@ -142,7 +142,7 @@ end
 namespace(:deploy) do
   desc "Sync Uploads folder"
   task :sync_uploads, :roles => :app do
-    run_locally "if [ -d #{uploads_path} ]; then rsync -avhru #{uploads_path} -delete -e 'ssh -p #{port}' #{user}@#{domain}:#{shared_path}; fi"
+    run_locally "if [ -d #{uploads_path} ]; then rsync -avhu #{uploads_path} -e 'ssh -p #{port}' #{user}@#{domain}:#{shared_path}; fi"
   end
 end
 
@@ -153,7 +153,7 @@ after "tft_staging:symlink", "deploy:sync_uploads"
 namespace(:deploy) do
   desc "Sync blogs.dir folder"
   task :sync_blogs_dir, :roles => :app do
-    run_locally "if [ -d #{blogs_dir_path} ]; then rsync -avhru #{blogs_dir_path} -delete -e 'ssh -p #{port}' #{user}@#{domain}:#{shared_path}; fi"
+    run_locally "if [ -d #{blogs_dir_path} ]; then rsync -avhu #{blogs_dir_path} -e 'ssh -p #{port}' #{user}@#{domain}:#{shared_path}; fi"
   end
 end
 after "tft_staging:symlink", "deploy:sync_blogs_dir"
