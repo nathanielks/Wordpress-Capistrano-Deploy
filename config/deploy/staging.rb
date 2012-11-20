@@ -14,7 +14,7 @@ server "#{user}@#{domain}", :app #This line doesn't need to change
 # a part of the group placln. Don't forget to uncomment out the line near the
 # bottom of the document to turn this on.
 
-set :group. "group" #TODO
+set :group, "group" #TODO
 
 
 # We'll be referencing this when we go to search and replace the database, this
